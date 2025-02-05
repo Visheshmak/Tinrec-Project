@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TINREC - E-Waste Management</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('WhatsApp Image 2025-01-09 at 20.28.53_24c245a5.jpg') center/cover no-repeat;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        .hero-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+        .hero-logo {
+            width: 250px;
+            margin-bottom: 20px;
+        }
+        .features-section {
+            padding: 50px 20px;
+        }
+        .feature-card {
+            transition: transform 0.3s ease, height 0.3s ease;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            height: auto;
+        }
+        .modal-dialog {
+            max-width: 400px;
+        }
+        /* Animation for Login Button */
+        .btn-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 1px rgba(0, 123, 255, 0.7);
+        }
+        .btn-primary:hover::after {
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <img src="Picsart_24-11-17_15-42-49-322.png" alt="TINREC Logo" class="hero-logo animate__animated animate__fadeInDown">
+    <div class="hero-text animate__animated animate__fadeInUp">
+        <h1>Welcome to TINREC</h1>
+        <p>"Managing e-waste today for a sustainable tomorrow."</p>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section container text-center">
+    <h2 class="mb-4 animate__animated animate__fadeIn">Why TINREC?</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card feature-card p-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card-body">
+                    <h5 class="card-title">Who we are?</h5>
+                    <p class="card-text">An innovative organization addressing India’s e-waste crisis through a 
+                        digital platform that connects users with certified recyclers, refurbishers, 
+                        and dismantlers.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card p-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card-body">
+                    <h5 class="card-title">Mission</h5>
+                    <p class="card-text"> To revolutionize e-waste management by promoting responsible disposal, 
+                        recycling, and reuse for a cleaner, greener environment.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card p-4 animate__animated animate__zoomIn animate__delay-3s">
+                <div class="card-body">
+                    <h5 class="card-title">Vision</h5>
+                    <p class="card-text">To lead a sustainable future by minimizing e-waste’s environmental impact 
+                        and fostering a circular economy</p>
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>
+
+<!-- Login Model -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-4 bg-dark text-white animate__animated animate__fadeInUp">
+    <p>&copy; 2025 TINREC. All Rights Reserved.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("#loginModal form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const email = document.querySelector("#email").value;
+        const password = document.querySelector("#password").value;
+
+        // Send login request to backend
+        const response = await fetch("http://localhost:5000/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Login successful!");
+            localStorage.setItem("token", data.token);
+            window.location.href = "dashboard.html"; // Redirect to dashboard after login
+        } else {
+            alert(data.message);
+        }
+    });
+});
+</script>
+</body>
+</html>

@@ -22,12 +22,11 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs"); // so you can render('index')
 
-// MongoDB Connection (Replace with your MongoDB URL)
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/tinrec";
+const JWT_SECRET = process.env.JWT_SECRET || "dev-only-secret-change-me";
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/tinrec", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("DB connection error:", err));
 
@@ -85,7 +84,7 @@ app.post("/login", async (req, res) => {
     }
 
     // Create JWT token
-    const token = jwt.sign({ userId: user._id }, "your_secret_key", {
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
       expiresIn: "1h",
     });
 
